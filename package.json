@@ -1,0 +1,49 @@
+{
+  "name": "agent-ledger",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agent Ledger mission control for governing, approving, and billing AI agents",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "storage:migrate": "node ./scripts/migrate-agent-ledger-storage.mjs",
+    "workspace:reset": "node ./scripts/reset-agent-ledger-workspace.mjs",
+    "agents:tick": "node ./scripts/run-agent-ledger-autonomous-tick.mjs",
+    "agents:loop": "node ./scripts/run-agent-ledger-autonomous-tick.mjs --loop",
+    "agents:work": "node ./scripts/run-agent-ledger-local-worker.mjs",
+    "agents:work:loop": "node ./scripts/run-agent-ledger-local-worker.mjs --loop",
+    "agents:simulate": "node ./scripts/run-agent-ledger-sandbox-simulations.mjs --count=100",
+    "desktop:app": "electron ./desktop/main.cjs",
+    "desktop:app:dev": "electron ./desktop/main.cjs --dev",
+    "desktop:launch": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/launch-agent-ledger-app.ps1 -Silent",
+    "desktop:web": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/launch-agent-ledger.ps1 -Silent",
+    "desktop:stop": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/stop-agent-ledger.ps1 -Silent",
+    "desktop:install": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/install-agent-ledger-shortcuts.ps1 -Silent"
+  },
+  "dependencies": {
+    "next": "16.2.3",
+    "openai": "^6.34.0",
+    "pg": "^8.20.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "server-only": "^0.0.1",
+    "stripe": "^22.0.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/pg": "^8.20.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "electron": "^41.3.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
