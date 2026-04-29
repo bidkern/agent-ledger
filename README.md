@@ -1,4 +1,6 @@
-# Agent Ledger
+﻿# Agent Ledger
+
+[Portfolio notes and demo guidance](PORTFOLIO.md)
 
 Agent Ledger is a desktop/web hub for creating autonomous specialist agents while keeping budgets, approvals, runtime permissions, action logs, and billing controls in one governed workspace.
 
@@ -227,3 +229,4 @@ ai-agents, nextjs, typescript, electron, openai, agent-orchestration, governance
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
