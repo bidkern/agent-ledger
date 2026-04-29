@@ -77,8 +77,8 @@ export function WorkspaceNav({ current }: { current: WorkspaceSection }) {
   const activeSection = sections.find((section) => section.key === current);
 
   return (
-    <nav className="space-y-3">
-      <div className="flex flex-wrap gap-2">
+    <nav className="space-y-0">
+      <div className="flex flex-wrap gap-1">
         {sections.map((section) => {
           const active = section.key === current;
 
@@ -86,11 +86,7 @@ export function WorkspaceNav({ current }: { current: WorkspaceSection }) {
             <Link
               key={section.key}
               href={section.href}
-              className={
-                active
-                  ? "rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-[0_8px_22px_rgba(8,19,29,0.18)] transition"
-                  : "rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm font-medium text-white/78 transition hover:bg-white/12 hover:text-white"
-              }
+              className={`retro-tab ${active ? "retro-tab-active" : ""}`}
             >
               {section.label}
             </Link>
@@ -99,8 +95,8 @@ export function WorkspaceNav({ current }: { current: WorkspaceSection }) {
       </div>
 
       {activeSection ? (
-        <div className="rounded-[1.1rem] border border-white/10 bg-white/6 px-4 py-3 text-sm leading-6 text-white/76">
-          <span className="font-semibold text-white">{activeSection.label}:</span>{" "}
+        <div className="retro-inset px-4 py-3 text-sm leading-6 text-ink">
+          <span className="font-semibold text-ink">{activeSection.label}:</span>{" "}
           {activeSection.hint}
         </div>
       ) : null}

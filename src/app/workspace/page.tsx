@@ -161,7 +161,7 @@ export default async function WorkspacePage() {
               </div>
               <Link
                 href="/workspace/approvals"
-                className="rounded-full border border-line bg-white px-4 py-2 text-sm font-medium text-ink transition hover:bg-white"
+                className="retro-link-button"
               >
                 Open approvals
               </Link>
@@ -223,7 +223,7 @@ export default async function WorkspacePage() {
               </div>
               <Link
                 href="/workspace/logs"
-                className="rounded-full border border-line bg-white px-4 py-2 text-sm font-medium text-ink transition hover:bg-white"
+                className="retro-link-button"
               >
                 Open log
               </Link>

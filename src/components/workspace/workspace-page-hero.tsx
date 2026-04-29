@@ -19,15 +19,19 @@ export function WorkspacePageHero({
   children,
 }: WorkspacePageHeroProps) {
   return (
-    <header className="tech-panel signal-grid rounded-[1.8rem] px-6 py-6 md:px-7">
-      <div className="relative z-10 flex flex-col gap-5">
+    <header className="tech-panel signal-grid">
+      <div className="retro-titlebar">
+        <span>{eyebrow}</span>
+        <span className="retro-blink">Agent terminal online</span>
+      </div>
+      <div className="retro-window-body relative z-10 flex flex-col gap-5">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-4xl space-y-3">
-            <p className="eyebrow text-[11px] font-medium text-white/64">
-              {eyebrow}
-            </p>
+            <div className="retro-banner inline-flex">
+              {current.replace("-", " ")} / operator module
+            </div>
             <div className="space-y-2">
-              <h1 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+              <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white/94 md:text-4xl">
                 {title}
               </h1>
               <p className="max-w-3xl text-sm leading-7 text-white/78 md:text-base">
@@ -37,7 +41,7 @@ export function WorkspacePageHero({
           </div>
 
           {actions ? (
-            <div className="flex flex-wrap items-center gap-3 lg:justify-end">
+            <div className="retro-action-row flex flex-wrap items-center gap-3 lg:justify-end">
               {actions}
             </div>
           ) : null}

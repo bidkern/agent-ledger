@@ -17,6 +17,7 @@
     "agents:work": "node ./scripts/run-agent-ledger-local-worker.mjs",
     "agents:work:loop": "node ./scripts/run-agent-ledger-local-worker.mjs --loop",
     "agents:simulate": "node ./scripts/run-agent-ledger-sandbox-simulations.mjs --count=100",
+    "proof:capture": "node ./scripts/capture-agent-ledger-proof.mjs",
     "desktop:app": "electron ./desktop/main.cjs",
     "desktop:app:dev": "electron ./desktop/main.cjs --dev",
     "desktop:launch": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/launch-agent-ledger-app.ps1 -Silent",
@@ -43,6 +44,7 @@
     "electron": "^41.3.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.3",
+    "playwright-core": "^1.59.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { SiteFooter } from "@/components/public/site-footer";
+import { SiteHeader } from "@/components/public/site-header";
 import { getSession } from "@/data/auth";
 
 const steps = [
@@ -29,107 +31,124 @@ export default async function Home() {
   const session = await getSession();
 
   return (
-    <main className="min-h-screen bg-[#101417] px-6 py-6 text-[#f2f0e8]">
-      <div className="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-6xl flex-col">
-        <header className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-md border border-white/12 bg-[#1b2227] text-sm font-semibold text-[#f2f0e8]">
-              AL
-            </div>
-            <div>
-              <p className="text-base font-semibold">Agent Ledger</p>
-              <p className="text-sm text-[#aeb8b8]">Desktop agent hub</p>
-            </div>
+    <main className="retro-page min-h-screen px-6 py-6">
+      <div className="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-7xl flex-col gap-6">
+        <SiteHeader session={session} />
+
+        <section className="retro-window fade-up">
+          <div className="retro-titlebar">
+            <span>Agent Ledger Home Page</span>
+            <span className="retro-blink">New</span>
           </div>
+          <div className="retro-window-body">
+            <div className="retro-banner">Create agents. Give permissions. Launch safely.</div>
 
-          <nav className="flex flex-wrap items-center gap-2">
-            <Link
-              href="/security"
-              className="rounded-md px-3 py-2 text-sm text-[#c8d0cc] transition hover:bg-white/8 hover:text-white"
-            >
-              Security
-            </Link>
-            <Link
-              href="/request-access"
-              className="rounded-md px-3 py-2 text-sm text-[#c8d0cc] transition hover:bg-white/8 hover:text-white"
-            >
-              Request access
-            </Link>
-          </nav>
-        </header>
+            <div className="mt-5 grid gap-6 lg:grid-cols-[1.04fr_0.96fr]">
+              <div className="max-w-3xl">
+                <p className="eyebrow text-[11px] font-medium text-muted">
+                  Welcome to the governed agent web
+                </p>
+                <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink md:text-5xl">
+                  A simple home base for specialist AI agents.
+                </h1>
+                <p className="mt-5 max-w-2xl text-lg leading-7 text-muted">
+                  Agent Ledger helps you set up different agents for different jobs.
+                  Each agent only gets the tools and accounts you allow.
+                </p>
 
-        <section className="grid flex-1 items-center gap-10 py-10 lg:grid-cols-[1.02fr_0.98fr]">
-          <div className="max-w-3xl">
-            <p className="eyebrow text-xs font-medium text-[#9fb2aa]">
-              Create agents. Give permissions. Launch safely.
-            </p>
-            <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-normal text-[#f2f0e8] md:text-6xl">
-              A simple home base for specialist AI agents.
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-[#c8d0cc]">
-              Agent Ledger helps you set up different agents for different jobs.
-              Each agent only gets the tools and accounts you allow.
-            </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href={session ? "/workspace/agents" : "/login?demo=1"}
+                    className="retro-link-button retro-button-primary"
+                  >
+                    {session ? "Open Agent Hub" : "Try the demo"}
+                  </Link>
+                  <Link href="/login" className="retro-link-button">
+                    Operator login
+                  </Link>
+                </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href={session ? "/workspace/agents" : "/login?demo=1"}
-                className="rounded-md bg-[#f2f0e8] px-5 py-3 text-sm font-semibold text-[#12181c] transition hover:bg-white"
-              >
-                {session ? "Open Agent Hub" : "Try the demo"}
-              </Link>
-              <Link
-                href="/login"
-                className="rounded-md border border-white/14 px-5 py-3 text-sm font-semibold text-[#f2f0e8] transition hover:bg-white/8"
-              >
-                Operator login
-              </Link>
-            </div>
-          </div>
+                <div className="retro-inset mt-8 grid gap-2 px-3 py-3 text-sm text-muted md:grid-cols-[auto_1fr]">
+                  <span className="font-bold text-ink">Operator note:</span>
+                  <span>
+                    Agent Ledger gives every AI worker a name, a job, a budget, a permission set, and a place to stop before it touches something risky.
+                  </span>
+                </div>
+              </div>
 
-          <div className="border border-white/10 bg-[#171d21] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
-            <div className="border-b border-white/10 pb-4">
-              <p className="text-sm font-semibold text-[#f2f0e8]">How it works</p>
-              <p className="mt-1 text-sm text-[#aeb8b8]">
-                Three steps. No framework knowledge required.
-              </p>
-            </div>
-
-            <div className="mt-5 grid gap-3">
-              {steps.map((step) => (
-                <article
-                  key={step.number}
-                  className="grid grid-cols-[2.25rem_1fr] gap-4 border border-white/10 bg-[#20282d] p-4"
-                >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-md bg-[#e4ecdf] text-sm font-semibold text-[#172018]">
-                    {step.number}
+              <div className="retro-window">
+                <div className="retro-titlebar retro-titlebar-green">
+                  <span>How it works</span>
+                  <span>3 easy steps</span>
+                </div>
+                <div className="retro-window-body">
+                  <div className="grid gap-3">
+                    {steps.map((step) => (
+                      <article key={step.number} className="retro-inset grid grid-cols-[2.35rem_1fr] gap-4 p-4">
+                        <div className="retro-window flex h-9 w-9 items-center justify-center text-sm font-bold text-ink">
+                          {step.number}
+                        </div>
+                        <div>
+                          <p className="text-base font-semibold text-ink">{step.title}</p>
+                          <p className="mt-1 text-sm leading-6 text-muted">
+                            {step.text}
+                          </p>
+                        </div>
+                      </article>
+                    ))}
                   </div>
-                  <div>
-                    <p className="text-base font-semibold text-[#f2f0e8]">
-                      {step.title}
-                    </p>
-                    <p className="mt-1 text-sm leading-6 text-[#c8d0cc]">
-                      {step.text}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
 
-            <div className="mt-5 border border-white/10 bg-[#11171a] p-4">
-              <p className="text-sm font-semibold text-[#f2f0e8]">
-                What stays protected
-              </p>
-              <div className="mt-3 grid gap-2">
-                {checks.map((item) => (
-                  <p key={item} className="text-sm leading-6 text-[#c8d0cc]">
-                    {item}
-                  </p>
-                ))}
+                  <div className="retro-inset mt-5 p-4">
+                    <p className="text-sm font-semibold text-ink">What stays protected</p>
+                    <div className="mt-3 grid gap-2">
+                      {checks.map((item) => (
+                        <p key={item} className="text-sm leading-6 text-muted">
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
+
+        <section className="grid gap-6 lg:grid-cols-3">
+          <article id="why" className="retro-window">
+            <div className="retro-titlebar retro-titlebar-green">
+              <span>Why it matters</span>
+              <span>Trust beats chaos</span>
+            </div>
+            <div className="retro-window-body text-sm leading-7 text-muted">
+              If agents can touch money, customer data, or external tools, the control
+              plane matters as much as the model. Agent Ledger is where operators decide
+              what those agents are allowed to do.
+            </div>
+          </article>
+          <article id="product" className="retro-window">
+            <div className="retro-titlebar">
+              <span>Product</span>
+              <span>Operator-first UI</span>
+            </div>
+            <div className="retro-window-body text-sm leading-7 text-muted">
+              Create specialist agents, bind only the resources they need, review risky
+              actions in one queue, and keep a ledger of what happened after every run.
+            </div>
+          </article>
+          <article id="pricing" className="retro-window">
+            <div className="retro-titlebar retro-titlebar-green">
+              <span>Pricing logic</span>
+              <span>Governed execution</span>
+            </div>
+            <div className="retro-window-body text-sm leading-7 text-muted">
+              The value is not token markup. The value is governed execution:
+              permissions, approvals, logs, limits, and the confidence to let agents keep working.
+            </div>
+          </article>
+        </section>
+
+        <SiteFooter />
       </div>
     </main>
   );

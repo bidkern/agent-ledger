@@ -31,34 +31,38 @@ export default async function RequestAccessPage() {
   const session = await getSession();
 
   return (
-    <main className="relative overflow-hidden grain">
+    <main className="retro-page grain">
       <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 py-6 md:px-10 md:py-8">
         <SiteHeader session={session} />
 
         <section className="grid gap-6 lg:grid-cols-[0.96fr_1.04fr]">
-          <article className="panel-strong rounded-[2rem] p-6 md:p-8">
-            <p className="text-xs font-medium uppercase tracking-[0.24em] text-muted">
-              Public launch
-            </p>
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-ink md:text-5xl">
-              Request access to the founder control plane for AI operators
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-muted">
-              Agent Ledger is best when it mirrors the real operational risk in your
-              company. Share what your agents already touch and what should never run
-              without review.
-            </p>
+          <article className="retro-window">
+            <div className="retro-titlebar">
+              <span>Public launch</span>
+              <span>Access request intake</span>
+            </div>
+            <div className="retro-window-body">
+              <h1 className="text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+                Request access to the founder control plane for AI operators
+              </h1>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-muted">
+                Agent Ledger is best when it mirrors the real operational risk in your
+                company. Share what your agents already touch and what should never run
+                without review.
+              </p>
 
-            <div className="mt-8 grid gap-4">
-              {steps.map((step) => (
-                <article
-                  key={step.title}
-                  className="rounded-[1.5rem] border border-line bg-white/82 p-5"
-                >
-                  <p className="text-sm font-semibold text-ink">{step.title}</p>
-                  <p className="mt-3 text-sm leading-7 text-muted">{step.body}</p>
-                </article>
-              ))}
+              <div className="retro-banner mt-6">
+                Tell us the risky jobs first, then the fun jobs.
+              </div>
+
+              <div className="mt-8 grid gap-4">
+                {steps.map((step) => (
+                  <article key={step.title} className="retro-inset p-5">
+                    <p className="text-sm font-semibold text-ink">{step.title}</p>
+                    <p className="mt-3 text-sm leading-7 text-muted">{step.body}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </article>
 

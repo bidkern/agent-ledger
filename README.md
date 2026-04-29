@@ -44,6 +44,72 @@ Agent Ledger is that hub:
 - Keep a ledger of runs, decisions, and outcomes
 - Price the system around governed execution, not token usage
 
+## Product proof
+
+These screenshots and demo clips were recaptured from the local production build on April 29, 2026 after a 90s-style UI redesign and after `npm run build` plus `npm run lint` passed.
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/landing.png" alt="Agent Ledger landing page" />
+      <p><strong>Public thesis and request-access entry point</strong></p>
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/workspace.png" alt="Agent Ledger workspace overview" />
+      <p><strong>Operator workspace with approvals, action history, and safety metrics</strong></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="docs/screenshots/agents.png" alt="Agent Ledger agent hub" />
+      <p><strong>Agent Hub for runtime setup, specialist creation, and dry-run testing</strong></p>
+    </td>
+    <td width="50%">
+      <img src="docs/screenshots/approvals.png" alt="Agent Ledger approvals queue" />
+      <p><strong>Approval queue that explains why risky work paused for human review</strong></p>
+    </td>
+  </tr>
+</table>
+
+<p>
+  <img src="docs/screenshots/implementation-guide.png" alt="Agent Ledger implementation guide" />
+</p>
+
+<p><strong>Customer implementation guide</strong>: a shippable onboarding surface for connecting real runtimes without giving agents unsafe access.</p>
+
+### Demo videos
+
+- [Landing to workspace tour](docs/demo-videos/landing-to-workspace.webm)
+- [Workspace navigation tour](docs/demo-videos/workspace-tour.webm)
+
+### Refresh proof assets
+
+```bash
+npm run proof:capture -- --base-url=http://localhost:3261
+```
+
+## Demo flow
+
+1. Open the landing page and read the product thesis: create specialist agents, give them narrow permissions, and stop risky work before it leaves the app.
+2. Open `/workspace` to see the operator home screen with pending approvals, recent actions, protected spend, and blocked actions.
+3. Open `/workspace/agents` to walk the core product path: connect a model/runtime, create a specialist agent, add a resource, give a permission, and stage a dry run.
+4. Open `/workspace/approvals` to inspect how the system pauses risky work, explains the policy reason, and lets the operator approve or reject the action.
+5. Open `/workspace/implementation-guide` to show the customer-facing rollout path for safe live usage.
+6. Optional: run `npm run desktop:launch` to show the Electron shell version instead of the browser view.
+
+## Implemented vs planned
+
+| Area | Implemented in this repo | Planned next |
+| --- | --- | --- |
+| Public product surface | Marketing site, request-access funnel, login, and founder workspace | Sharper customer case studies and recorded onboarding walkthroughs |
+| Agent setup | Specialist agent creation flow, runtime connection setup, budgets, cadence, owners, and dry-run launches | Shared template packs, richer versioning, and collaborative handoff between operators |
+| Governance | Policy authoring, approval queue, action log, blocked-action tracking, and protected spend visibility | More granular policy packs, richer risk scoring, and deeper audit export/reporting |
+| Runtime execution | Autonomous tick endpoint, local worker loop, queued run processing, and governed action staging | Multi-worker remote orchestration, better scheduling controls, and runtime health SLAs |
+| Storage and auth | Signed session cookies, access-code auth, optional OIDC path, filesystem storage, Postgres support, and export route | Full tenant administration, SCIM, org hierarchy, and longer-term retention controls |
+| Billing | Stripe-backed billing configuration, checkout, portal launch, and webhook sync | Metered billing, seat controls, invoice workflows, and finance reconciliation |
+| Desktop delivery | Electron shell plus Windows launcher and shortcut install scripts | Signed installers, auto-update, and packaged distribution for non-technical buyers |
+| Enterprise safety | Local vault, secret redaction, dangerous-secret rejection rules, and customer implementation guide | Managed secret-manager integrations, connector attestations, and deeper compliance packaging |
+
 ## Local setup
 
 1. Install dependencies:
