@@ -1,9 +1,26 @@
 # Agent Ledger
 
-Agent Ledger is a launchable desktop agent hub.
-Instead of only monitoring agents, the product helps people create autonomous specialist agents, bind local variables and account references, set customer-defined guidelines, queue recurring work, and keep governance, approvals, logs, and billing wrapped around that work.
+[![CI](https://github.com/bidkern/agent-ledger/actions/workflows/ci.yml/badge.svg)](https://github.com/bidkern/agent-ledger/actions/workflows/ci.yml)
 
-This repo now ships:
+Agent Ledger is a Next.js and TypeScript portfolio product for governing autonomous agent work. It shows how a business could create specialist agents, grant narrow permissions, queue recurring work, require human approval for risky actions, and keep an auditable ledger of what happened.
+
+## Recruiter quick read
+
+This project is meant to demonstrate product thinking, workflow automation, and safety-aware AI operations rather than a small toy demo.
+
+- **Problem:** autonomous tools can move faster than teams can supervise them.
+- **Solution:** a governed workspace with agent setup, permissions, budgets, approvals, run history, and exportable decision records.
+- **Role fit:** analyst, operations, sales-ops, AI operations, technical product, and workflow automation roles.
+- **Technical proof:** Next.js App Router, TypeScript, local worker scripts, Postgres-ready storage, signed sessions, OIDC support, Stripe billing wiring, audit logs, and safety controls.
+
+Reviewer path:
+
+1. Scan the screenshots in [Product proof](#product-proof).
+2. Review the implemented/planned table to understand scope boundaries.
+3. Open `src/data/autonomous-engine.ts`, `src/data/repository.ts`, and `src/app/workspace/approvals/page.tsx` for the core workflow logic.
+4. Run `npm run lint`, `npm run typecheck`, and `npm run build` to verify the project.
+
+## What ships in this repo
 
 - A public landing page for the Agent Ledger thesis
 - A public request-access funnel and founder pipeline for inbound demand
