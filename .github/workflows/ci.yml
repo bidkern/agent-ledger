@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+      AUTH_STRATEGY: access-code
+      APP_ACCESS_CODE: ci-access-code-change-me
+      APP_ACCESS_EMAILS: reviewer@example.com
+      ENABLE_LOCAL_DEMO: "false"
+      ENABLE_LOCAL_TEST_ACCESS: "false"
+      SESSION_SECRET: ci-session-secret-with-enough-length-change-me
+      APP_URL: http://localhost:3260
+      SERVICE_ACCOUNT_TOKENS: local-agent:ci-service-token-change-me
+      AGENT_LEDGER_AUTONOMOUS_TICK_SECONDS: "60"
+      AGENT_LEDGER_WORKER_PROVIDER: openai
+      AGENT_LEDGER_WORKER_SECONDS: "60"
+      DATA_DIR: .agentledger-data
+      AGENT_LEDGER_VAULT_KEY: ci-local-vault-key-with-enough-length-change-me
+      AGENT_LEDGER_ALLOW_METERED_API: "false"
+      AGENT_LEDGER_MODEL_MONTHLY_BUDGET_USD: "0.25"
+      AGENT_LEDGER_MODEL_RUN_BUDGET_USD: "0.06"
+      AGENT_LEDGER_ALLOW_WALLET_EXECUTION: "false"
+      STORAGE_BACKEND: filesystem
+      DATABASE_SSL: disable
+      SERVER_ACTIONS_ALLOWED_ORIGINS: localhost:3260,127.0.0.1:3260
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
