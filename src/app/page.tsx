@@ -23,7 +23,7 @@ const steps = [
 
 const checks = [
   "Agents have names, owners, tools, and budgets.",
-  "Cards, wallets, inboxes, folders, and keys stay permission-bound.",
+  "Cards, inboxes, folders, and keys stay permission-bound.",
   "Risky actions can pause for approval before anything external happens.",
 ] as const;
 

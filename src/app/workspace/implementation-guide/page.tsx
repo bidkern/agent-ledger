@@ -17,7 +17,7 @@ const setupSteps = [
     step: "02",
     title: "Add only safe test resources",
     text:
-      "Add a vault item for each outside thing the agent may touch. Use masked card references, public wallet addresses, test Stripe keys, disposable inboxes, and local folders.",
+      "Add a vault item for each outside thing the agent may touch. Use masked card references, test Stripe keys, disposable inboxes, sandbox repos, and local folders.",
   },
   {
     step: "03",
@@ -42,8 +42,8 @@ const setupSteps = [
 const customerChecklist = [
   "Start with one agent and one job.",
   "Use test-mode accounts before live accounts.",
-  "Never paste wallet keys, seed phrases, card numbers, bank logins, account passwords, or production finance credentials.",
-  "Never give an agent direct access to a real wallet, bank account, card, inbox, or admin tool until approvals are proven.",
+  "Never paste private keys, seed phrases, card numbers, bank logins, account passwords, or production finance credentials.",
+  "Never give an agent direct access to a real bank account, card, inbox, or admin tool until approvals are proven.",
   "Keep spend and trade permissions approval-gated until the action log shows predictable behavior.",
   "Use separate service tokens for each external agent or integration.",
   "Run the autonomous tick from a worker or scheduler instead of manually starting and stopping agents.",
@@ -55,7 +55,7 @@ const connectionOptions = [
     title: "Fresh environment plus key or token",
     bestFor: "OpenAI, Claude, GitHub, Slack, Notion, and most developer tools.",
     text:
-      "Create a fresh project, repo, workspace, page set, inbox, or wallet first. Then create the narrow key or token for only that environment.",
+      "Create a fresh project, repo, workspace, page set, or inbox first. Then create the narrow key or token for only that environment.",
   },
   {
     title: "Isolated browser/work profile",
@@ -79,7 +79,7 @@ const connectionOptions = [
     title: "Guarded adapter",
     bestFor: "Production systems where you need stronger control than documentation alone.",
     text:
-      "Put Agent Ledger between the agent and the dangerous tool. The agent never gets raw payment, wallet, inbox, browser, or admin access without passing through the adapter.",
+      "Put Agent Ledger between the agent and the dangerous tool. The agent never gets raw payment, inbox, browser, or admin access without passing through the adapter.",
   },
 ] as const;
 
@@ -205,7 +205,7 @@ const faq = [
   {
     question: "What stops an agent from ignoring Agent Ledger?",
     answer:
-      "Nothing if the agent still has direct access to the real tool. In production, the risky capability must live behind Agent Ledger. The agent should only receive the guarded adapter, not raw card, wallet, inbox, or admin credentials.",
+      "Nothing if the agent still has direct access to the real tool. In production, the risky capability must live behind Agent Ledger. The agent should only receive the guarded adapter, not raw card, inbox, or admin credentials.",
   },
   {
     question: "What is the safest first live test?",
@@ -251,7 +251,7 @@ export default async function ImplementationGuidePage() {
             <HeroCard
               label="Safe first test"
               title="Use fake or limited resources."
-              text="Masked test cards, public wallet references, disposable inboxes, and dry-runs come before live accounts."
+              text="Masked test cards, sandbox repos, disposable inboxes, and dry-runs come before live accounts."
             />
             <HeroCard
               label="Production rule"

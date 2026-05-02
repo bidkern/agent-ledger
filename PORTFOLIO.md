@@ -1,6 +1,6 @@
 # Portfolio Overview: Agent Ledger
 
-Agent Ledger is a workflow-governance product for teams that want automation to move work forward without losing approvals, ownership, budgets, or audit history. It is strongest as a portfolio project for operations, product operations, implementation, AI operations, and workflow automation roles.
+Agent Ledger is a workflow-governance product for teams that want automation to move work forward without losing approvals, ownership, budgets, or audit history. It is strongest as a portfolio project for operations, product operations, implementation, technical support, sales operations, and workflow automation roles.
 
 ## What this project proves
 
@@ -19,7 +19,6 @@ Agent Ledger is a workflow-governance product for teams that want automation to 
 
 ## Role fit
 
-Agent Ledger is not meant to position Jesse for cybersecurity jobs or senior engineering jobs. It is meant to show practical judgment around workflow design, operational controls, documentation, and the business side of automation.
+Agent Ledger shows practical judgment around workflow design, operational controls, documentation, and the business side of automation.
 
 The clearest job connection is any role where someone needs to coordinate tools, policies, stakeholders, records, and follow-up without losing track of what happened.
-

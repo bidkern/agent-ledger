@@ -20,7 +20,7 @@ The key idea is simple:
 You can test with your own data and tools, but start safely.
 
 - Create your own specialist agents in Agent Hub.
-- Add vault items from fresh environments such as a sandbox GitHub repo, test card, fresh wallet, disposable inbox, isolated browser profile, API key, local folder, or environment variable.
+- Add vault items from fresh environments such as a sandbox GitHub repo, test card, disposable inbox, isolated browser profile, API key, local folder, or environment variable.
 - Bind exact permissions from one vault item to one agent.
 - Set standing prompts, autonomous cadences, daily action caps, email caps, and spend caps.
 - Connect fresh environments with API keys, access tokens, isolated browser profiles, or local bridges. Do not paste normal account passwords.
@@ -31,7 +31,7 @@ You can test with your own data and tools, but start safely.
 
 Important boundary:
 
-Agent Ledger cannot control an agent that still has direct access to a real card, wallet, inbox, admin panel, or payment account.
+Agent Ledger cannot control an agent that still has direct access to a real card, inbox, admin panel, or payment account.
 For production, put the risky capability behind Agent Ledger through a guarded adapter.
 
 ## Safest first test
@@ -45,13 +45,11 @@ Good first tests:
 - A local folder with read-only permission.
 - Stripe test mode with fake payment objects.
 - A virtual card with a tiny limit.
-- A fresh crypto wallet with no meaningful funds.
 - An isolated browser profile that is only logged into sandbox accounts.
 
 Avoid on day one:
 
 - Real bank accounts.
-- Real wallets with funds.
 - Primary email inboxes.
 - Primary GitHub orgs or production repos.
 - Admin accounts.
@@ -86,7 +84,6 @@ Examples:
 - Inbox Agent: draft replies, summarize customer issues, label urgent messages.
 - Research Agent: collect sources and summarize findings.
 - Finance Ops Agent: review refund requests and propose decisions.
-- Wallet Watch Agent: monitor public wallet activity and prepare a summary.
 - Frontend Agent: review UI tasks and prepare implementation notes.
 
 Start with `suggest` or `execute`.
@@ -102,7 +99,6 @@ Examples:
 - `Sandbox GitHub Repo`
 - `Stripe Test Account`
 - `$1 Virtual Test Card`
-- `Fresh MetaMask Test Wallet`
 - `Local Downloads Folder`
 - `Agent Sandbox Browser Profile`
 
@@ -111,8 +107,8 @@ If you store secrets, set `AGENT_LEDGER_VAULT_KEY` to a long random value first.
 
 Zero-custody rule:
 
-- Do not paste wallet private keys, seed phrases, card numbers, bank logins, account passwords, or production finance credentials into Agent Ledger.
-- Wallets, cards, and bank accounts should be saved as public addresses, aliases, masked references, or guarded adapter names only.
+- Do not paste private keys, seed phrases, card numbers, bank logins, account passwords, or production finance credentials into Agent Ledger.
+- Cards and bank accounts should be saved as aliases, masked references, or guarded adapter names only.
 - If an agent needs to spend, trade, refund, send, or administer something, put that action behind a guarded adapter and approval policy.
 
 ### 5. Bind permissions
@@ -218,7 +214,7 @@ Use the simplest safe path the provider supports.
 
 This is the generic local-browser flow Agent Ledger supports best:
 
-1. Create a fresh sandbox account, repo, inbox, wallet, or workspace.
+1. Create a fresh sandbox account, repo, inbox, or workspace.
 2. Create an isolated browser profile for that agent.
 3. Open the login page in that browser profile from the terminal.
 4. The human signs in manually inside the browser window.
@@ -240,7 +236,7 @@ In the app, use `Agent Hub -> Create a browser body for an agent` to save this p
 
 Use this for OpenAI, Claude, GitHub, Slack, Notion, and most developer tools.
 
-Create a fresh project, repo, workspace, page set, inbox, or wallet first.
+Create a fresh project, repo, workspace, page set, or inbox first.
 Then create a narrow key or token for only that environment, paste it into Agent Ledger once, and bind it only to the agent that needs it.
 
 Do not paste your normal account password.
@@ -351,7 +347,7 @@ curl -X POST http://localhost:3260/api/mcp \
 Use this for production.
 
 A guarded adapter is a wrapper around a risky tool.
-The agent does not receive the raw Stripe key, wallet seed, bank login, inbox login, or admin credential.
+The agent does not receive the raw Stripe key, bank login, inbox login, or admin credential.
 Instead, the agent calls the adapter.
 The adapter calls Agent Ledger.
 Agent Ledger decides whether the action can continue.

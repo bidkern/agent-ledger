@@ -79,11 +79,11 @@ Non-negotiables:
 ## Operational security
 
 - Delaware C corp with IP assignment and access agreements
-- cyber liability and E&O insurance before meaningful scale
+- appropriate business liability and E&O insurance before meaningful scale
 - incident response runbook
 - vendor security review for all critical infra providers
 
 ## Architecture summary
 
-The safest version of Prooflane is not a fully open AI app.
-It is a narrow, server-first B2B product where private workflows are treated like internal systems and every share path is explicit, short-lived, and auditable.
+The safest version of Agent Ledger is not a fully open automation app.
+It is a narrow, server-first B2B workflow product where private actions are treated like internal systems and every share path is explicit, short-lived, and auditable.
