@@ -4,6 +4,8 @@
 
 Agent Ledger is a Next.js and TypeScript portfolio product for governing autonomous agent work. It shows how a business could create specialist agents, grant narrow permissions, queue recurring work, require human approval for risky actions, and keep an auditable ledger of what happened.
 
+Recruiter shortcut: see [PORTFOLIO.md](PORTFOLIO.md) for a one-page overview focused on analyst, operations, product-ops, and workflow automation fit.
+
 ## Recruiter quick read
 
 This project is meant to demonstrate product thinking, workflow automation, and safety-aware AI operations rather than a small toy demo.
