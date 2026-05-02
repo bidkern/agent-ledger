@@ -2,17 +2,17 @@
 
 [![CI](https://github.com/bidkern/agent-ledger/actions/workflows/ci.yml/badge.svg)](https://github.com/bidkern/agent-ledger/actions/workflows/ci.yml)
 
-Agent Ledger is a Next.js and TypeScript portfolio product for governing autonomous agent work. It shows how a business could create specialist agents, grant narrow permissions, queue recurring work, require human approval for risky actions, and keep an auditable ledger of what happened.
+Agent Ledger is a Next.js and TypeScript portfolio product for governing AI-assisted workflow automation. It shows how a business could create specialist work queues, grant narrow permissions, require human approval for risky actions, and keep an auditable ledger of what happened.
 
 Recruiter shortcut: see [PORTFOLIO.md](PORTFOLIO.md) for a one-page overview focused on analyst, operations, product-ops, and workflow automation fit.
 
 ## Recruiter quick read
 
-This project is meant to demonstrate product thinking, workflow automation, and safety-aware AI operations rather than a small toy demo.
+This project is meant to demonstrate product thinking, workflow automation, approvals, and audit-friendly operations rather than a small toy demo.
 
-- **Problem:** autonomous tools can move faster than teams can supervise them.
-- **Solution:** a governed workspace with agent setup, permissions, budgets, approvals, run history, and exportable decision records.
-- **Role fit:** analyst, operations, sales-ops, AI operations, technical product, and workflow automation roles.
+- **Problem:** automation can move faster than teams can supervise it.
+- **Solution:** a governed workspace with work queues, permissions, budgets, approvals, run history, and exportable decision records.
+- **Role fit:** operations analyst, implementation specialist, sales-ops, product-ops, technical support, and workflow automation roles.
 - **Technical proof:** Next.js App Router, TypeScript, local worker scripts, Postgres-ready storage, signed sessions, OIDC support, Stripe billing wiring, audit logs, and safety controls.
 
 Reviewer path:
@@ -37,7 +37,7 @@ Reviewer path:
 - A service tick endpoint for queueing due autonomous agent cycles
 - A local worker that processes queued runs with a real OpenAI runtime key
 - A local vault for account references, variables, and encrypted optional secrets
-- Zero-custody vault rules that reject wallet private keys, seed phrases, payment-card secrets, and bank credentials
+- Vault rules that reject dangerous secrets such as private keys, seed phrases, payment-card secrets, and bank credentials
 - Per-agent permission bindings
 - One-off manual test launches with local run history and approval-aware staging
 - A customer implementation guide for safe testing and real agent connection
@@ -56,7 +56,7 @@ If agents become powerful, people need a simple place to create them, grant only
 Agent Ledger is that hub:
 
 - Create every agent as a named specialist
-- Bind only the sandbox repos, test accounts, wallets, cards, folders, or keys it needs
+- Bind only the sandbox repos, test accounts, cards, folders, or keys it needs
 - Give each agent a standing prompt and cadence so it can keep working without manual start/stop clicks
 - Enforce daily action caps, email caps, spend caps, tool allowlists, and approval rules
 - Escalate risky actions before external execution
@@ -248,7 +248,7 @@ npm run storage:migrate
 - Private routes and private exports are marked `no-store` and `noindex`
 - Public access requests, login, agent creation, policy creation, simulation, approvals, billing updates, development seeding, and exports are rate limited
 - Vault secrets are stored locally encrypted when `AGENT_LEDGER_VAULT_KEY` is configured; the UI only shows masked references
-- Wallets, payment cards, and bank accounts are stored as references only; raw private keys, seed phrases, card numbers, and bank credentials are rejected
+- Payment cards and bank accounts are stored as references only; raw private keys, seed phrases, card numbers, and bank credentials are rejected
 - Audit logs, action logs, approvals, runs, policies, and exports pass through secret redaction before they are persisted
 - Runtime OAuth routes are disabled unless `ENABLE_RUNTIME_OAUTH=true`; the default customer path is API keys, guarded adapters, or isolated local browser profiles
 - Enterprise storage can run on Postgres instead of filesystem-backed JSON

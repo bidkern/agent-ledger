@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "agent governance",
     "approval queue",
     "action log",
-    "AI operations",
+    "workflow automation",
     "agent control plane",
   ],
   title: {

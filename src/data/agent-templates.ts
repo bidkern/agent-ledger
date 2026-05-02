@@ -99,23 +99,23 @@ export const agentTemplates = [
       "High-risk lane. Keep spending at test limits and require approvals for money movement.",
   },
   {
-    id: "wallet-watch-agent",
-    name: "Wallet Watch Agent",
-    category: "finance",
+    id: "customer-follow-up-agent",
+    name: "Customer Follow-Up Agent",
+    category: "operations",
     description:
-      "Monitors wallet-related activity and prepares suggested actions without autonomous signing.",
+      "Tracks customer follow-ups, drafts next steps, and escalates overdue or sensitive items.",
     defaultMission:
-      "Monitor wallet activity, summarize opportunities or risks, and never sign transactions without explicit operator approval.",
+      "Review customer follow-up records, summarize overdue items, and draft next steps for operator review.",
     defaultModel: "gpt-5.4-mini",
     defaultAutonomy: "suggest",
-    defaultTools: ["browser", "wallet-monitor", "notion"],
+    defaultTools: ["crm", "email", "calendar"],
     defaultDailyBudgetUsd: 0,
     defaultMonthlyBudgetUsd: 0,
-    recommendedVaultKinds: ["wallet", "browser-profile"],
+    recommendedVaultKinds: ["api-key", "email", "browser-profile"],
     starterTask:
-      "Review watched wallet activity and prepare a risk-aware summary of possible next actions.",
+      "Review open customer follow-ups and prepare a prioritized list of next actions.",
     riskNote:
-      "Use fresh wallets for testing. The first version should monitor and draft, not sign transactions.",
+      "Start in draft mode. External customer messages should stay approval-gated until tone and routing are proven.",
   },
 ] satisfies AgentTemplate[];
 

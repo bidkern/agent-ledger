@@ -103,7 +103,7 @@ function buildDemoDataset() {
   const revenueAgentId = randomUUID();
   const researchAgentId = randomUUID();
   const financeAgentId = randomUUID();
-  const walletAgentId = randomUUID();
+  const followUpAgentId = randomUUID();
 
   const completedLogId = randomUUID();
   const blockedLogId = randomUUID();
@@ -122,7 +122,7 @@ function buildDemoDataset() {
 
   const inboxVaultId = randomUUID();
   const cardVaultId = randomUUID();
-  const walletVaultId = randomUUID();
+  const crmVaultId = randomUUID();
   const folderVaultId = randomUUID();
   const browserVaultId = randomUUID();
 
@@ -209,16 +209,16 @@ function buildDemoDataset() {
       updatedAt: time.minutesAgo(9),
     },
     {
-      id: walletAgentId,
-      templateId: "wallet-watch-agent",
-      name: "Wallet Watch Agent",
+      id: followUpAgentId,
+      templateId: "customer-follow-up-agent",
+      name: "Customer Follow-Up Agent",
       mission:
-        "Monitor fresh testing wallets, summarize risks, and never sign transactions without explicit operator approval.",
+        "Review customer follow-up records, summarize overdue items, and draft next steps for operator review.",
       model: "gpt-5.4-mini",
       autonomy: "suggest",
       operatingMode: "autonomous",
       standingPrompt:
-        "Every hour, monitor the fresh test wallet, summarize visible risk, and never sign, trade, bridge, or transfer funds.",
+        "Every hour, review open follow-ups, flag overdue customer items, and draft next steps without sending external messages.",
       cadenceMinutes: 60,
       maxActionsPerDay: 12,
       maxEmailsPerDay: 0,
@@ -226,8 +226,8 @@ function buildDemoDataset() {
       lastAutonomousRunAt: time.minutesAgo(82),
       nextRunAt: time.minutesAgo(22),
       status: "active",
-      ownerEmail: "wallets@agentledger.ai",
-      allowedTools: ["browser", "wallet-monitor", "notion"],
+      ownerEmail: "customer-ops@agentledger.ai",
+      allowedTools: ["crm", "email", "calendar"],
       dailyBudgetUsd: 0,
       monthlyBudgetUsd: 0,
       lastHeartbeatAt: time.minutesAgo(12),
@@ -266,16 +266,16 @@ function buildDemoDataset() {
       updatedAt: time.hoursAgo(8),
     },
     {
-      id: walletVaultId,
-      label: "Fresh MetaMask test wallet",
-      kind: "wallet",
-      provider: "MetaMask",
-      handle: "fresh-wallet-demo",
+      id: crmVaultId,
+      label: "Demo CRM workspace",
+      kind: "api-key",
+      provider: "CRM sandbox",
+      handle: "customer-follow-up-demo",
       maskedSecret: undefined,
       encryptedSecret: undefined,
       hasSecret: false,
-      riskLevel: "high",
-      notes: "Monitoring only. No autonomous signing or trading in the demo.",
+      riskLevel: "medium",
+      notes: "Draft-only customer follow-up workflow. External sends require approval.",
       createdAt: time.hoursAgo(8),
       updatedAt: time.hoursAgo(8),
     },
@@ -332,12 +332,12 @@ function buildDemoDataset() {
     },
     {
       id: randomUUID(),
-      agentId: walletAgentId,
-      vaultItemId: walletVaultId,
-      scope: "read",
+      agentId: followUpAgentId,
+      vaultItemId: crmVaultId,
+      scope: "draft",
       requiresApproval: true,
       dailyLimitUsd: 0,
-      notes: "Monitoring only. No signing.",
+      notes: "Can draft follow-ups, but sending stays approval-gated.",
       createdAt: time.hoursAgo(5),
     },
     {
